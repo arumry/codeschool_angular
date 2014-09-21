@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="store"> <!-- run this module
+when the document loads. Treats dom elements within this parent element as part of the Angular app-->
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Shaping up with Angular</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	<div class="main" ng-controller="storeController as store">
+		<div class="product" ng-repeat="product in store.products">
+			<h1>{{product.name}}</h1>
+			<h2>{{product.price}}</h2>
+			<p>{{product.description}}</p>
+			<button ng-hide="store.product.soldOut">Add to Cart</button>
+		</div>
+	</div>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	 <script src="js/main.js"></script>
 </body>
 </html>
